@@ -19,14 +19,14 @@ class CreateSalesTable extends Migration {
 			$table->string('contact_tel', 20);
 			$table->bigInteger('employee_id');
 			$table->timestamp('sale_date');
-			$table->char('sale_type', 1);
+			$table->string('sale_type', 1);
 			$table->string('invoice_no', 20);
 			$table->decimal('sub_total', 18, 2);
 			$table->decimal('discount', 18, 2);
 			$table->decimal('saletax', 18, 2);
-			$table->string('ar_id', 20)->nullable();
+			$table->string('ar_id', 20)->nullable();   //
 			$table->decimal('paid', 18, 2);
-			$table->char('pmt_id', 1)->nullable();
+			$table->string('pmt_id', 1)->nullable();    //
 			$table->integer('delivery')->nullable();
 			$table->string('sale_guid', 20);
 			$table->string('mgmr', 20)->nullable();

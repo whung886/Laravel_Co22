@@ -16,7 +16,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('cust_name_c', 50);
 			$table->string('cust_name_e', 50)->nullable();
 			$table->string('ear_no', 20);
-			$table->bigInteger('cust_eid');
+			$table->bigInteger('cust_eid');    //
 			$table->string('contact', 20);
 			$table->date('birth')->nullable();
 			$table->char('gender', 1);

@@ -14,8 +14,8 @@ class CreatePromotionsTable extends Migration {
 		Schema::create('promotions', function (Blueprint $table) {
 			$table->id();
 			$table->bigInteger('product_id');
-			$table->date('start_date');
-			$table->date('end_date');
+			$table->dateTime('start_date');
+			$table->dateTime('end_date');
 			$table->decimal('sale_price', 18, 2);
 			$table->text('remark')->nullable();
 			$table->timestamps();

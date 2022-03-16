@@ -15,7 +15,7 @@ class CreateSaleDetailsTable extends Migration {
 			$table->id();
 			$table->bigInteger('sale_id');
 			$table->tinyInteger('item_no');
-			$table->bigInteger('prod_id');
+			$table->bigInteger('product_id');
 			$table->decimal('unit_price', 18, 2);
 			$table->integer('sale_qty');
 			$table->bigInteger('stock_id');

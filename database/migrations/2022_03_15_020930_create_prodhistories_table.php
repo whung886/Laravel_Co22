@@ -14,7 +14,6 @@ class CreateProdhistoriesTable extends Migration {
 		Schema::create('prodhistories', function (Blueprint $table) {
 			$table->id();
 			$table->bigInteger('product_id');
-			$table->date('update_date');
 			$table->bigInteger('employee_id');
 			$table->decimal('old_cost', 18, 2);
 			$table->decimal('new_cost', 18, 2);
