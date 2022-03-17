@@ -13,20 +13,16 @@ class CreateProductsTable extends Migration {
 	public function up() {
 		Schema::create('products', function (Blueprint $table) {
 			$table->id();
-			$table->string('prod_name_c', 50);
-			$table->string('prod_name_e', 50)->nullable();
-			$table->string('unit', 20);
+			$table->string('name', 50);
+			$table->string('unit', 20)->nullable();
 			$table->string('itm_code', 20);
 			$table->bigInteger('supplier_id');
-			$table->string('prod_id_in_supp', 20)->nullable();
-			$table->bigInteger('category_id');
-			$table->integer('prod_min')->nullable();
+			$table->string('category_id', 20);
+			$table->integer('min_qty')->nullable(100);
 			$table->decimal('cost', 18, 2);
 			$table->decimal('unit_price', 18, 2);
-			$table->integer('stk_qty')->default(0);
-			$table->bigInteger('status_id');
-			$table->timestamp('latestreceiptdate')->nullable();
-			$table->timestamp('latestdeliverydate')->nullable();
+			$table->integer('qty_instock')->nullable(0);
+			$table->string('status', 20)->nullable('none');
 			$table->text('remark')->nullable();
 			$table->timestamps();
 		});

@@ -13,22 +13,20 @@ class CreateSuppliersTable extends Migration {
 	public function up() {
 		Schema::create('suppliers', function (Blueprint $table) {
 			$table->id();
-			$table->string('supp_name_c', 50);
-			$table->string('supp_name_e', 50)->nullable();
+			$table->string('name', 50);
 			$table->string('ear_no', 20);
-			$table->string('supp_addr', 250);
-			$table->string('inv_addr', 250);
-			$table->string('supp_tel', 20);
-			$table->string('supp_contact', 20);
-			$table->string('supp_email', 50);
-			$table->string('supp_owner', 20);
+			$table->string('address', 250);
+			$table->string('inv_addr', 250)->nullable();
+			$table->string('phone', 20);
+			$table->string('contact', 20);
+			$table->string('email', 50)->nullable();
+			$table->string('owner', 20);
 			$table->date('contract_start');
 			$table->date('contract_end')->nullable();
-			$table->string('userid', 50);
-			$table->string('pwd', 100);
-			$table->string('valid_code', 50)->nullable();
-			$table->date('latestreceiptdate')->nullable();
-			$table->integer('status');
+			$table->string('userid', 50)->nullable();
+			$table->string('pwd', 100)->nullable();
+			$table->string('validation', 50)->nullable();
+			$table->string('status', 20)->nullable();
 			$table->timestamps();
 		});
 	}
