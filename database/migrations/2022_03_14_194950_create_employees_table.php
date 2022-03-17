@@ -16,7 +16,7 @@ class CreateEmployeesTable extends Migration {
 			$table->string('emp_name_c', 50);
 			$table->string('emp_name_e', 50)->nullable();
 			$table->bigInteger('department_id');
-			$table->bigInteger('rank_id');
+			$table->string('rank', 20);
 			$table->string('emp_id_no', 20);
 			$table->date('emp_birth');
 			$table->char('emp_gender', 1);
