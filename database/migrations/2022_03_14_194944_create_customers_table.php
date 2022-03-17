@@ -16,7 +16,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('cust_name_c', 50);
 			$table->string('cust_name_e', 50)->nullable();
 			$table->string('ear_no', 20);
-			$table->bigInteger('cust_eid');    //
+			$table->string('cust_eid', 30);
 			$table->string('contact', 20);
 			$table->date('birth')->nullable();
 			$table->char('gender', 1);
@@ -27,13 +27,9 @@ class CreateCustomersTable extends Migration {
 			$table->string('memstate')->nullable();
 			$table->string('userid', 50)->nullable();
 			$table->string('pwd', 100)->nullable();
-			$table->string('bank', 3)->nullable();
-			$table->string('acct', 20)->nullable();
-			$table->string('acc_group', 10)->nullable();
-			$table->string('ac_sub', 20)->nullable();
 			$table->string('valid_code', 50)->nullable();
 			$table->boolean('validated')->default(false);
-			$table->dateTime('lastpuchasedate')->nullable();
+			$table->date('lastpuchasedate')->nullable();
 			$table->text('remark')->nullable();
 			$table->timestamps();
 		});

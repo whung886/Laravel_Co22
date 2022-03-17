@@ -25,8 +25,8 @@ class CreateProductsTable extends Migration {
 			$table->decimal('unit_price', 18, 2);
 			$table->integer('stk_qty')->default(0);
 			$table->string('status', 10)->nullable('none');
-			$table->timestamp('latestreceiptdate')->nullable();
-			$table->timestamp('latestdeliverydate')->nullable();
+			$table->date('latestreceiptdate')->nullable();
+			$table->date('latestdeliverydate')->nullable();
 			$table->text('remark')->nullable();
 			$table->timestamps();
 		});
