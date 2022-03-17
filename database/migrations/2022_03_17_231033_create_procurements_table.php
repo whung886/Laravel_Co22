@@ -4,14 +4,14 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProcurementTable extends Migration {
+class CreateProcurementsTable extends Migration {
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('procurement', function (Blueprint $table) {
+		Schema::create('procurements', function (Blueprint $table) {
 			$table->id();
 			$table->bigInteger('supplier_id');
 			$table->string('originator', 100);
@@ -36,6 +36,6 @@ class CreateProcurementTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('procurement');
+		Schema::dropIfExists('procurements');
 	}
 }
