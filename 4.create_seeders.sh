@@ -1,5 +1,6 @@
 #!/bin/sh
 php artisan make:seeder CartSeeder
+php artisan make:seeder CategorySeeder
 php artisan make:seeder CustomerSeeder
 php artisan make:seeder EmployeeSeeder
 php artisan make:seeder ProductSeeder

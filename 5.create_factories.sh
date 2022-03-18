@@ -1,5 +1,6 @@
 #!/bin/sh
 php artisan make:factory CartFactory
+php artisan make:factory CategoryFactory
 php artisan make:factory CustomerFactory
 php artisan make:factory EmployeeFactory
 php artisan make:factory ProductFactory

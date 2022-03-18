@@ -1,5 +1,6 @@
 #!/bin/sh
 php artisan make:model Cart
+php artisan make:model Category
 php artisan make:model Customer
 php artisan make:model Employee
 php artisan make:model Product

@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration {
 			$table->string('unit', 20)->nullable();
 			$table->string('itm_code', 20);
 			$table->bigInteger('supplier_id');
-			$table->string('category_id', 20);
+			$table->bigInteger('category_id');
 			$table->integer('min_qty')->nullable(100);
 			$table->decimal('cost', 18, 2);
 			$table->decimal('unit_price', 18, 2);

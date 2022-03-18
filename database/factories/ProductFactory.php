@@ -17,11 +17,12 @@ class ProductFactory extends Factory {
 			'name' => $this->faker->name,
 			'itm_code' => $this->faker->isbn13,
 			'supplier_id' => rand(1, 5),
-			'category_id' => $this->faker->randomElement($array = array('優質', '中等', '劣質')),
+			'category_id' => rand(1, 5),
 			'min_qty' => 5000,
 			'cost' => $this->faker->randomFloat,
 			'unit_price' => $this->faker->randomFloat,
 			'qty_instock' => rand(1000, 20000),
+			'status' => $this->faker->randomElement($array = array('預售', '正常', '缺貨', '停產')),
 		];
 	}
 }
