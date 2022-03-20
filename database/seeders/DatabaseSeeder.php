@@ -19,16 +19,17 @@ class DatabaseSeeder extends Seeder {
 		$this->setFKCheckOff();
 		$this->call([
 			CartSeeder::class,
+			CategorySeeder::class,
 			CustomerSeeder::class,
 			EmployeeSeeder::class,
+			SupplierSeeder::class,
 			ProductSeeder::class,
 			OrderSeeder::class,
-			OrderDetailSeeder::class,
+			OrderProductSeeder::class,
 			ProcurementSeeder::class,
-			ProcurementDetailSeeder::class,
+			ProcurementProductSeeder::class,
 			SaleSeeder::class,
-			SaleDetailSeeder::class,
-			SupplierSeeder::class,
+			SaleProductSeeder::class,
 		]);
 		//enable foreign key check for this connection before running seeders
 		$this->setFKCheckOn();

@@ -4,17 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProcurementDetailsTable extends Migration {
+class CreateOrderProductTable extends Migration {
 	/**
 	 * Run the migrations.
 	 *
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('procurement_details', function (Blueprint $table) {
+		Schema::create('order_product', function (Blueprint $table) {
 			$table->id();
-			$table->bigInteger('procurement_id');
-			$table->bigInteger('product_id');
+			$table->foreignId('order_id')->constrained();
+			$table->foreignId('product_id')->constrained();
 			$table->decimal('unit_price', 18, 2);
 			$table->integer('qty');
 			$table->timestamps();
@@ -27,6 +27,11 @@ class CreateProcurementDetailsTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('procurement_details');
+		Schema::table('order_product', function (Blueprint $table) {
+			$table->dropForeign(['order_id']);
+			$table->dropForeign(['product_id']);
+		});
+
+		Schema::dropIfExists('order_product');
 	}
 }
