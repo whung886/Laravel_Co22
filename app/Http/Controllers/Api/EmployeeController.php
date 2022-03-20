@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\employee;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller {
@@ -75,7 +75,7 @@ class EmployeeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy(Employee $employee) {
-		$employee->delete();
-		return redirect('/employee');
+		$status = $employee->delete();
+		return ['status' => $status];
 	}
 }
