@@ -13,7 +13,12 @@ class EmployeeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		//
+		$employee = Employee::get();
+		if (isset($employee)) {
+			return ['status' => true, 'result' => $employee];
+		} else {
+			return ['status' => false, 'result' => $employee];
+		}
 	}
 
 	/**
@@ -24,9 +29,7 @@ class EmployeeController extends Controller {
 	 */
 	public function store(Request $request) {
 		$employee = new Employee($request->all());
-
 		$result = $employee->save();
-
 		if ($result) {
 			return ['status' => 1];
 		} else {
@@ -41,7 +44,12 @@ class EmployeeController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		//
+		$employee = Employee::findOrFail($id);
+		if (isset($employee)) {
+			return ['status' => ture, 'result' => $employee];
+		} else {
+			return ['status' => false, 'result' => $employee];
+		}
 	}
 
 	/**
@@ -51,8 +59,13 @@ class EmployeeController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
-		//
+	public function update(Request $request, Employee $employee) {
+		$rows = $employee->update($request->all());
+		if ($rows == 1) {
+			return ['status' => true];
+		} else {
+			return ['status' => false];
+		}
 	}
 
 	/**
@@ -61,7 +74,7 @@ class EmployeeController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
+	public function destroy(Employee $employee) {
 		$employee->delete();
 		return redirect('/employee');
 	}

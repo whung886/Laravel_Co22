@@ -61,7 +61,8 @@ class SupplierController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
-		//
+	public function destroy(Supplier $supplier) {
+		$status = $supplier->delete();
+		return ['status' => $status];
 	}
 }

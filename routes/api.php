@@ -48,3 +48,5 @@ Route::get('products/getOrders', function () {
 	$product = Product::find(1);
 	dd($product->orders);
 });
+
+Route::get('products/mb/{product}', 'App\Http\Controllers\Api\ProductController@demoModelBinding');

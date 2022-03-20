@@ -13,7 +13,12 @@ class CustomerController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		//
+		$customer = Customer::get();
+		if (isset($customer)) {
+			return ['status' => true, 'result' => $customer];
+		} else {
+			return [];
+		}
 	}
 
 	/**
@@ -41,7 +46,12 @@ class CustomerController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		//
+		$customer = Customer::findOrFail($id);
+		if (isset($customer)) {
+			return ['status' => true, 'result' => $customer];
+		} else {
+			return ['status' => false, 'result' => $customer];
+		}
 	}
 
 	/**
@@ -51,8 +61,14 @@ class CustomerController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
-		//
+	public function update(Request $request, Customer $customer) {
+		$rows = $customer->update($request->all());
+		if ($rows == 1) {
+			return ['status' => true];
+		} else {
+			return ['status' => false];
+		}
+
 	}
 
 	/**
@@ -61,7 +77,8 @@ class CustomerController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
-		//
+	public function destroy(Customer $customer) {
+		$status = $customer::delete();
+		return ['status' => $status];
 	}
 }

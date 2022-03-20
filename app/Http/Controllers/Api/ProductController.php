@@ -13,7 +13,13 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		//
+		$status = false;
+		$products = Product::get();
+		// $products = Product::where('category_id', 2)->where('supplier_id', 2)->orderBy('qty_instock', 'asc')->get();
+		if (isset($products)) {
+			$status = true;
+		}
+		return ['status' => $status, 'result' => $products];
 	}
 
 	/**
@@ -36,9 +42,7 @@ class ProductController extends Controller {
 		// $product->status = $request->status;
 
 		$product = new Product($request->all());
-
 		$result = $product->save();
-
 		if ($result) {
 			return ['status' => 1];
 		} else {
@@ -53,7 +57,14 @@ class ProductController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
+		$product = Product::findOrFail($id);
 		//
+		//$product = Product::where('category_id', 1)->first();
+
+		if (isset($product)) {
+			$result = true;
+		}
+		return ['status' => $result, 'result' => $product];
 	}
 
 	/**
@@ -63,8 +74,14 @@ class ProductController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
-		//
+	// public function update(Request $request, $id) {
+	public function update(Request $request, Product $product) {
+		$rows = $product->update($request->all());
+		if ($rows == 1) {
+			return ['status' => true];
+		} else {
+			return ['status' => false];
+		}
 	}
 
 	/**
@@ -73,7 +90,14 @@ class ProductController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
-		//
+	// public function destroy($id) {
+	public function destroy(Product $product) {
+		$status = $product->delete();
+		return ['status' => $status];
+	}
+
+	// Route Model Binding
+	public function demoModelBinding(Product $product) {
+		dd($product);
 	}
 }

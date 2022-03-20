@@ -10,4 +10,4 @@ php artisan make:factory OrderProductFactory
 php artisan make:factory ProcurementFactory
 php artisan make:factory ProcurementProductFactory
 php artisan make:factory SaleFactory
-php artisan make:factory SaleProductFactory
+php artisan make:factory ProductSaleFactory

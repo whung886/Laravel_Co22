@@ -10,4 +10,4 @@ php artisan make:seeder OrderProductSeeder
 php artisan make:seeder ProcurementSeeder
 php artisan make:seeder ProcurementProductSeeder
 php artisan make:seeder SaleSeeder
-php artisan make:seeder SaleProductSeeder
+php artisan make:seeder ProductSaleSeeder

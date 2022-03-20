@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder {
 			ProcurementSeeder::class,
 			ProcurementProductSeeder::class,
 			SaleSeeder::class,
-			SaleProductSeeder::class,
+			ProductSaleSeeder::class,
 		]);
 		//enable foreign key check for this connection before running seeders
 		$this->setFKCheckOn();

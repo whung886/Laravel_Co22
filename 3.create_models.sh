@@ -10,4 +10,4 @@ php artisan make:model OrderProduct
 php artisan make:model Procurement
 php artisan make:model ProcurementProduct
 php artisan make:model Sale
-php artisan make:model SaleProduct
+php artisan make:model ProductSale

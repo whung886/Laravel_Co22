@@ -13,7 +13,12 @@ class CategoryController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		//
+		$category = Category::get();
+		if (isset($category)) {
+			return ['status' => true, 'result' => $category];
+		} else {
+			return ['status' => false, 'result' => $category];
+		}
 	}
 
 	/**
@@ -28,9 +33,9 @@ class CategoryController extends Controller {
 		$result = $category->save();
 
 		if ($result) {
-			return ['status' => 1];
+			return ['status' => true];
 		} else {
-			return ['status' => 0];
+			return ['status' => false];
 		}
 	}
 
@@ -41,7 +46,12 @@ class CategoryController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		//
+		$category = Category::findOrFail($id);
+		if (isset($category)) {
+			return ['status' => true];
+		} else {
+			return ['status' => false];
+		}
 	}
 
 	/**
@@ -51,8 +61,13 @@ class CategoryController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id) {
-		//
+	public function update(Request $request, Category $category) {
+		$rows = $category->update($request->all());
+		if ($row == 1) {
+			return ['status' => true];
+		} else {
+			return ['status' => false];
+		}
 	}
 
 	/**
@@ -61,7 +76,8 @@ class CategoryController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
-		//
+	public function destroy(Category $category) {
+		$status = $category->delete();
+		return ['status' => $status];
 	}
 }
